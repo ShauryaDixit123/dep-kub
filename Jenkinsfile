@@ -16,12 +16,7 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            agent {
-                docker {
-                    image 'gradle:8.2.0-jdk17-alpine'
-                    reuseNode true
-                }
-            }
+            agent any
             steps {
                 script {
                     sh 'docker build -t ${GCR_REPO}:${IMAGE_TAG} .'
