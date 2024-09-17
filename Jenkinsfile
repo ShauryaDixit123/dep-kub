@@ -12,7 +12,7 @@ pipeline {
                 branch  "sit"
             }
             steps {
-                git clone "https://github.com/ShauryaDixit123/dep-kub"
+                git url: 'https://github.com/ShauryaDixit123/dep-kub', branch: 'main'
             }
         }
         stage('Build Docker Image') {
