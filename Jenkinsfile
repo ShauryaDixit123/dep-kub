@@ -5,11 +5,11 @@ pipeline {
         GCR_PROJECT = 'sp-to-sp'
         GCR_REPO = "us-central1-docker.pkg.dev/sp-to-sp/testprod"
         IMAGE_TAG = "${env.BUILD_ID}"
-        GCP_CREDENTIALS = credentials('gcp-service-account') // Reference to Jenkins credentials ID
+        GCP_CREDENTIALS =  shauryad224@gmail.com
     }
     
     triggers {
-        // Poll for changes in the sit branch (use webhooks for more efficiency)
+        // Poll for changes in the sit branch (use webho]oks for more efficiency)
         pollSCM('* * * * *') // This is just a placeholder, use webhook instead if possible
     }
     
