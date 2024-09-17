@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:20.17.0-alpine3.20' }
+    }
     environment {
         GCR_PROJECT = 'sp-to-sp'
         GCR_REPO = "us-central1-docker.pkg.dev/sp-to-sp/testprod"
@@ -12,7 +14,7 @@ pipeline {
                 branch  "sit"
             }
             steps {
-                git url: 'https://github.com/ShauryaDixit123/dep-kub', branch: 'main'
+                git url: 'https://github.com/ShauryaDixit123/dep-kub', branch: 'sit'
             }
         }
         stage('Build Docker Image') {
