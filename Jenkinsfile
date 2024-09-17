@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'node:20.17.0-alpine3.20' }
-    }
+    agent  any
     environment {
         GCR_PROJECT = 'sp-to-sp'
         GCR_REPO = "us-central1-docker.pkg.dev/sp-to-sp/testprod"
@@ -18,6 +16,12 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
+            agent {
+                docker {
+                    image 'gradle:8.2.0-jdk17-alpine'
+                    reuseNode true
+                }
+            }
             steps {
                 script {
                     sh 'docker build -t ${GCR_REPO}:${IMAGE_TAG} .'
