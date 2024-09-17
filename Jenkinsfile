@@ -5,7 +5,7 @@ pipeline {
         GCR_PROJECT = 'sp-to-sp'
         GCR_REPO = "us-central1-docker.pkg.dev/sp-to-sp/testprod"
         IMAGE_TAG = "${env.BUILD_ID}"
-        GCP_CREDENTIALS =  shauryad224@gmail.com
+        GCP_CREDENTIALS =  "shauryad224@gmail.com"
     }
     
     triggers {
